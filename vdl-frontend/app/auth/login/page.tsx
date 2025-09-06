@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { FcGoogle } from "react-icons/fc";
 import { SiGoogle, SiApple } from "react-icons/si";
 
 export default function LoginPage() {
@@ -21,14 +22,30 @@ export default function LoginPage() {
       {/* Left Section (Form) */}
       <div className="flex w-full md:w-1/2 items-center justify-center p-8">
         <div className="w-full max-w-md">
-            <h1>Welcome back! please Sign in to continue</h1>
-            <p>By signing up, you will gain access to exclusive content, and be the first to hear about exciting news and updates.</p>
-          <h2 className="text-2xl font-bold mb-6">Sign In</h2>
+            <h1 className="text-2xl font-semibold my-4 " >Welcome back! please Sign in to continue</h1>
+            <p className=" font-sans my-4 " >By signing up, you will gain access to exclusive content, and be the first to hear about exciting news and updates.</p>
+              {/* Create Account with arc underline */}
+          <div className="relative inline-block mb-8">
+            <h2 className="text-2xl font-bold">Sign In</h2>
+            <svg
+              className="absolute left-0 -bottom-3 w-full h-4 text-green-500"
+              viewBox="0 0 100 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 5 Q50 -5 100 5"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
 
           {/* Social Buttons */}
           <div className="flex gap-4 mb-6">
             <button className="flex items-center gap-2 border px-4 py-2 rounded-lg hover:bg-gray-100">
-        <SiGoogle className="text-red-500 text-xl" />
+        <FcGoogle className="text-red-500 text-xl" />
         Sign in with Google
       </button>
             <button className="flex items-center gap-2 border px-4 py-2 rounded-lg hover:bg-gray-100">
