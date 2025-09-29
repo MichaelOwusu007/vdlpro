@@ -23,8 +23,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           {/* Auth routes (FULL PAGE, no WMSLayout) */}
-          <Route path="/auth/login" element={<Login />} />
-          <Route path="/auth/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
 
           {/* WMS routes (with layout) */}
           <Route path="/" element={<WMSLayout />}>
