@@ -8,8 +8,8 @@ import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 import Inventory from "./pages/Inventory";
 import NotFound from "./pages/NotFound";
-import Login from "./pages/auth/login/page";
-import SignUp from "./pages/auth/signup/page";
+import Login from "./pages/auth/LoginPage";
+import SignUp from "./pages/auth/SignupPage";
 import Orders from "./pages/Orders";
 import Shipping from "./pages/Shipping";
 
@@ -23,8 +23,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           {/* Auth routes (FULL PAGE, no WMSLayout) */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/signup" element={<SignUp />} />
 
           {/* WMS routes (with layout) */}
           <Route path="/" element={<WMSLayout />}>
