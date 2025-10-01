@@ -1,5 +1,3 @@
-// components/Inventory/ActivityLog.tsx
-import React from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import type { ActivityLog } from "./InventoryService";
 

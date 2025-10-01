@@ -12,6 +12,7 @@ const initialWarehouses = [
   {
     id: "wh1",
     name: "Accra Main Warehouse",
+    capacity: 100,
     stock: {
       "Laptop": 25,
       "Headphones": 40,
@@ -21,6 +22,7 @@ const initialWarehouses = [
   {
     id: "wh2",
     name: "Kumasi Distribution Center",
+    capacity: 80,
     stock: {
       "Laptop": 10,
       "Headphones": 20,
@@ -30,6 +32,7 @@ const initialWarehouses = [
   {
     id: "wh3",
     name: "Takoradi Backup Warehouse",
+    capacity: 50,
     stock: {
       "Laptop": 5,
       "Headphones": 8,
@@ -97,14 +100,50 @@ export function InventoryDashboard() {
         <TabsContent value="view" className="mt-6">
           <div className="grid md:grid-cols-3 gap-6">
             {warehouses.map((wh) => (
-              <WarehouseStock key={wh.id} warehouse={wh} />
+              <WarehouseStockCard
+                key={wh.id}
+                warehouse={wh}
+                stock={Object.entries(wh.stock).map(([name, quantity]) => ({
+                  id: `${wh.id}-${name}`,
+                  productId: name.toLowerCase().replace(/\s/g, "-"),
+                  sku: `${wh.id}-${name}`.toUpperCase(),
+                  name,
+                  quantity,
+                  meta: {},
+                  warehouseId: wh.id,
+                }))}
+                onAdjust={() => {}}
+                onQuickTransfer={() => {}}
+                onProductClick={() => {}}
+              />
             ))}
           </div>
         </TabsContent>
 
         {/* Transfer Stock */}
         <TabsContent value="transfer" className="mt-6">
-          <TransferStock warehouses={warehouses} onTransfer={handleTransfer} />
+          <TransferStockModal
+            open={true}
+            onClose={() => {}}
+            warehouses={warehouses}
+            stock={
+              warehouses.flatMap(wh =>
+                Object.entries(wh.stock).map(([product, quantity], idx) => ({
+                  id: `${wh.id}-${product}`,
+                  warehouseId: wh.id,
+                  productId: product.toLowerCase().replace(/\s/g, "-"),
+                  sku: `${wh.id}-${product}`.toUpperCase(),
+                  name: product,
+                  quantity,
+                  meta: {},
+                }))
+              )
+            }
+            onComplete={(newStock) => {
+              // You may want to update warehouses state here based on newStock
+              toast.success("Stock transfer completed!");
+            }}
+          />
         </TabsContent>
       </Tabs>
     </div>

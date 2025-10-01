@@ -31,7 +31,7 @@ export function InventoryOverview() {
   const [selectedSkuForTransfer, setSelectedSkuForTransfer] = useState<string | undefined>();
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
 
-  // 🔹 Load initial data
+  // Load initial data
   useEffect(() => {
     InventoryService.ensureSeedData();
     setWarehouses(InventoryService.getWarehouses());
@@ -40,12 +40,12 @@ export function InventoryOverview() {
     setLogs(InventoryService.getLogs());
   }, []);
 
-  // 🔹 Persist stock changes
+  // Persist stock changes
   useEffect(() => {
     InventoryService.saveStock(stock);
   }, [stock]);
 
-  // 🔹 Visible warehouses based on filter/search
+  //Visible warehouses based on filter/search
   const visibleWarehouses = useMemo(() => {
     const q = searchText.trim().toLowerCase();
     const base =
@@ -60,7 +60,7 @@ export function InventoryOverview() {
     );
   }, [warehouses, selectedWarehouseId, searchText]);
 
-  // 🔹 KPI stats
+  
   const totals = useMemo(() => {
     const items =
       selectedWarehouseId === "all"

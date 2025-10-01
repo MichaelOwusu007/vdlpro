@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { SiApple } from 'react-icons/si';
-import { API_BASE, fetchJson, saveToken } from '../../utils/api'; // Adjust the import path as needed
+import { API_BASE, fetchJson, saveToken } from '../../utils/api'; 
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export default function LoginPage() {
       }
 
       // redirect to dashboard or protected route
-      navigate('/dashboard'); // change as needed
+      navigate('/dashboard'); 
     } catch (err) {
       console.error('Login error', err);
       setError(err.message || 'Login failed');

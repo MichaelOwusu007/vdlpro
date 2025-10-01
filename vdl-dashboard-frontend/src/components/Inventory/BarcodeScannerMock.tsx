@@ -1,4 +1,4 @@
-// components/Inventory/BarcodeScannerMock.tsx
+
 import React, { useState, useMemo } from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

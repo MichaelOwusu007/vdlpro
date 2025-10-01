@@ -43,7 +43,7 @@ router.post('/avatar', authenticateToken, upload.single('avatar'), async (req, r
   }
 });
 
-// GET /api/users/:id  (public user profile)
+// GET /api/users/  (public user profile)
 router.get('/:id', async (req, res) => {
   try {
     const result = await db.query('SELECT id, first_name, last_name, email, avatar_url FROM users WHERE id = $1', [req.params.id]);
