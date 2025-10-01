@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/auth/LoginPage";
 import SignUp from "./pages/auth/SignupPage";
 import Orders from "./pages/Orders";
-import Shipping from "./pages/Shipping";
+//import Shipping from "./pages/Shipping";
 
 const queryClient = new QueryClient();
 
@@ -36,11 +36,11 @@ const App = () => (
               path="orders"
               element={ <Orders /> }
             />
-            <Route
+            {/* <Route
               path="shipping"
               element={
                <Shipping />}
-            />
+            /> */}
             <Route
               path="reports"
               element={
